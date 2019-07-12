@@ -9,7 +9,7 @@ const isReader = rule()(async (parent, args, ctx, info) => {
   return true;
 });
 
-// Changing to true will return null for games
+// Changing to false will return null for games
 const isGamer = rule()(async (parent, args, ctx, info) => {
   return true;
 });
