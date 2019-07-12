@@ -9,9 +9,13 @@ Begin by installing the local dependencies
 > yarn
 ```
 
-Run the books and games services
+Run the books service
 ```sh
 > yarn books
+```
+
+Run the games service
+```sh
 > yarn games
 ```
 
