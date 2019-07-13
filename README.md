@@ -9,19 +9,9 @@ Begin by installing the local dependencies
 > yarn
 ```
 
-Run the books service
+Run the books service, games service, and gateway
 ```sh
-> yarn books
-```
-
-Run the games service
-```sh
-> yarn games
-```
-
-Start the gateway
-```sh
-> yarn gateway
+> yarn dev
 ```
 
 Access the gateway at http://localhost:9999
