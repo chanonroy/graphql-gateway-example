@@ -1,17 +1,7 @@
 const { ApolloServer, gql } = require('apollo-server');
 import { buildFederatedSchema } from '@apollo/federation';
 import { GraphQLSchema } from 'graphql';
-
-const games = [
-  {
-    title: 'Sim City',
-    developer: 'EA Games',
-  },
-  {
-    title: 'Warcraft III',
-    developer: 'Blizzard'
-  },
-];
+import games from '../data/games';
 
 const typeDefs = gql`
   type Game {
