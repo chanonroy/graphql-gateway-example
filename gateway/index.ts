@@ -42,5 +42,5 @@ const config: GatewayConfig = {
 const gateway = new ApolloGateway(config);
 
 start(gateway).then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`);
+  console.log(`🚀 Gateway server ready at ${url}`);
 });

@@ -28,5 +28,5 @@ const schema: GraphQLSchema = buildFederatedSchema([{
 const server = new ApolloServer({ schema });
 
 server.listen({ port: 5000 }).then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
+  console.log(`🎮  Games server ready at ${url}`);
 });
