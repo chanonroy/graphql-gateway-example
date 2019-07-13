@@ -1,7 +1,7 @@
 const { ApolloServer, gql } = require('apollo-server');
 import { buildFederatedSchema } from '@apollo/federation';
 import { GraphQLSchema } from 'graphql';
-import { find, filter } from 'lodash';
+import { find } from 'lodash';
 import books from '../data/books';
 import stores from '../data/stores';
 
@@ -12,7 +12,8 @@ const typeDefs = gql`
     store: Store
   }
 
-  type Store {
+  # Concept of a store is defined in Books Service
+  type Store @key(fields: "id") {
     id: ID
     name: String
   }

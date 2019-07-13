@@ -2,12 +2,12 @@ const games = [
   {
     title: 'Sim City',
     developer: 'EA Games',
-    stores: [1, 2]
+    store: '1'
   },
   {
     title: 'Warcraft III',
     developer: 'Blizzard',
-    stores: [1, 2]
+    store: '2'
   },
 ];
 
