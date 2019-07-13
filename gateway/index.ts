@@ -24,10 +24,10 @@ const permissions = shield({
 const start = async (apolloGateway: ApolloGateway): Promise<ServerInfo> => {
   const { schema, executor } = await apolloGateway.load();
 
-  const schemaConfig = applyMiddleware(schema, permissions);
+  const schemaWithPermissions = applyMiddleware(schema, permissions);
 
   return new ApolloServer({
-    schema: schemaConfig,
+    schema: schemaWithPermissions,
     executor,
   }).listen({ port: 9999 });
 };
