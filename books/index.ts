@@ -16,6 +16,7 @@ const typeDefs = gql`
   type Store @key(fields: "id") {
     id: ID
     name: String
+    online: Boolean
   }
 
   type Query {

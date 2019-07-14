@@ -1,11 +1,13 @@
 const stores = [
   {
     id: '1',
-    name: 'Amazon'
+    name: 'Amazon',
+    online: true
   },
   {
     id: '2',
-    name: 'Tesco'
+    name: 'Tesco',
+    online: false
   }
 ]
 

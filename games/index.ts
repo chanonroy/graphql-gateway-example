@@ -9,13 +9,14 @@ const typeDefs = gql`
   type Game {
     title: String
     developer: String
-    store: Store @provides(fields: "name")
+    store: Store @provides(fields: "name, online")
   }
 
   # Store type is inherited from Books Service
   extend type Store @key(fields: ["id"]) {
     id: ID @external
     name: String @external
+    online: Boolean @external
   }
 
   type Query {
