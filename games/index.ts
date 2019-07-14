@@ -6,13 +6,15 @@ import games from "../data/games";
 import stores from "../data/stores";
 
 const typeDefs = gql`
+  """
+  A video game that is made by a developer and available in one store.
+  """
   type Game {
     title: String
     developer: String
     store: Store @provides(fields: "name, online")
   }
 
-  # Store type is inherited from Books Service
   extend type Store @key(fields: ["id"]) {
     id: ID @external
     name: String @external

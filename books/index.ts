@@ -6,13 +6,19 @@ import books from '../data/books';
 import stores from '../data/stores';
 
 const typeDefs = gql`
+  """
+  A book product that is written by an author and available in one store.
+  """
   type Book {
     title: String
     author: String
     store: Store
   }
 
-  # Concept of a store is defined in Books Service
+  """
+  A store where books and games are sold in.
+  Can be online only.
+  """
   type Store @key(fields: "id") {
     id: ID
     name: String
@@ -20,9 +26,12 @@ const typeDefs = gql`
   }
 
   type Query {
+    "Get all books"
     books: [Book]
+    "Get all stores"
     stores: [Store]
-    store(id: ID): Store
+    "Fetch a store by its ID"
+    getStoreById(id: ID): Store
   }
 `;
 
@@ -30,7 +39,7 @@ const resolvers = {
   Query: {
     books: () => books,
     stores: () => stores,
-    store: (obj, args, context, info) => {
+    getStoreById: (obj, args, context, info) => {
       return find(stores, { id: args.id })
     },
   },
