@@ -4,6 +4,20 @@ import { GraphQLSchema } from "graphql";
 import { find } from "lodash";
 import games from "../data/games";
 import stores from "../data/stores";
+import { shield, rule } from "graphql-shield";
+import { applyMiddleware } from "graphql-middleware";
+
+// Default behaviour is to always throw error here on games.
+const isGamer = rule()(async (parent, args, ctx, info) => {
+  return new Error('Not a gamer')
+});
+
+const permissions = shield({
+  Query: {
+    games: isGamer
+  }
+});
+
 
 const typeDefs = gql`
   """
@@ -44,7 +58,9 @@ const schema: GraphQLSchema = buildFederatedSchema([
   }
 ]);
 
-const server = new ApolloServer({ schema });
+const schemaWithPermissions = applyMiddleware(schema, permissions);
+
+const server = new ApolloServer({ schema: schemaWithPermissions });
 
 server.listen({ port: 5000 }).then(({ url }) => {
   console.log(`🎮  Games server ready at ${url}`);
