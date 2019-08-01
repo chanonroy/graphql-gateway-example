@@ -40,7 +40,6 @@ const resolvers = {
     books: () => books,
     stores: () => stores,
     getStoreById: (obj, args, context, info) => {
-      throw Error('this is an error')
       return find(stores, { id: args.id })
     },
   },
